@@ -1,0 +1,25 @@
+;q3
+;qa
+(define (standard-roundf x y)
+  (let ((helpFunc (expt 10 y)))
+    (cond ((>= .5 (- (ceiling (* helpFunc x)) (* helpFunc x)))
+        (/ (ceiling (* helpFunc x)) helpFunc))
+        (else (/ (round (* helpFunc x)) helpFunc)))))
+
+;q2
+;not finished
+(define (area-triangle a b c)
+  (define (calcS a b c)
+    (/ (+ a b c) 2))
+  (define (calcArea a b c)
+    (sqrt (* (calcS a b c)
+             (- (calcS a b c) a)
+             (- (calcS a b c) b)
+             (- (calcS a b c) c))))
+  (define (valid-input?)
+    (if (and (> (+ a b) c) (> (+ b c) a) (> (+ a c) b)) #t #f))
+  (if (valid-input?) (standard-roundf (calcArea a b c) 3) 0))                                                  
+
+;(area-triangle 3 3 5)
+;(area-triangle 4 15 6)
+;(area-triangle -2 5 4)

@@ -1,0 +1,13 @@
+;Question 6
+
+(define (foo a b)
+		((cond ((> b 0) +)((= b 0) *)(else /)) a b))
+                           ^           ^        ^
+                           |           |        |
+                      condition    condition   condition
+                        when         when       for
+                       b > 0         b = 0      all other case
+
+when b > 0 it evaluate => a + b
+when b = 0 it evaluate => a * b
+when b < 0 it evaluate => a / b

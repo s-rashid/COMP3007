@@ -1,0 +1,31 @@
+;Qestion 5
+;a.
+#|In aplicative-order it will behave like infinte loop. Since it will try to evaluate y brefor it proced farther.
+
+(define (x)(x))<---- Here looks for the value x. Assuming keep waiting to get return value of x ...(3)
+    (define (test x y)<--- Here y call the (x) ...(2) 
+        (if (> x 0)
+            x
+            y))
+
+    (test 1 (x))
+             ^
+          1. |____ passed the argument for y
+
+|#
+
+
+;b.
+#| In normal-order it should print out 1. Since y won't be evaluated until if statement become false.
+
+(define (x)(x))
+    (define (test x y) <------- Here y doesn't call (x) for value ... (2)
+        (if (> x 0)  <------- since if statement is true          ... (3)
+            x       <---------- should execute this line          ... (4)
+            y)) <--------- should not reach to this point         ... (5)
+
+    (test 1 (x))
+         1.  ^
+             |_______ passed the argument for y
+
+|#

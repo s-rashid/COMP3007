@@ -1,0 +1,5 @@
+;Q5
+;a
+;in aplicative-order it will behave like infinte loop. Since it will try to evaluate y brefor it proced farther.
+;b
+;in normal-order it should print out 1. Since y won't be evaluated until if statement become false.
